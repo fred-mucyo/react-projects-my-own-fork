@@ -7,7 +7,7 @@
 // Import any component like this:
 //   import { Button, Card, Badge } from './components/ui'
 
-import { BookmarkPlus, Search, ArrowRight, Clock } from 'lucide-react'
+import { BookmarkPlus, Search, ArrowRight } from 'lucide-react'
 import { Avatar, Badge, Button, Card, Input, Textarea } from './components/ui'
 
 export default function App() {
@@ -112,8 +112,21 @@ export default function App() {
 
         {/* ── Card ───────────────────────────────────────────────── */}
         <section className="space-y-4">
-          <SectionLabel>Card — post example</SectionLabel>
-          <PostCard />
+          <SectionLabel>Card</SectionLabel>
+          <div className="grid grid-cols-2 gap-4">
+            <Card>
+              <p className="text-sm font-medium text-ink">Default card</p>
+              <p className="text-xs text-muted mt-1">padding={'{true}'} (default)</p>
+            </Card>
+            <Card hover>
+              <p className="text-sm font-medium text-ink">Hoverable card</p>
+              <p className="text-xs text-muted mt-1">hover={'{true}'} — try it</p>
+            </Card>
+          </div>
+          <p className="text-xs text-muted">
+            In Milestone 2 you will compose Card into a PostCard component.
+            See <strong>post-card-reference.png</strong> in the exercise folder for the expected design.
+          </p>
         </section>
 
         {/* ── Form Elements ──────────────────────────────────────── */}
@@ -169,45 +182,5 @@ function Row({ label, children }) {
       {label && <span className="text-xs text-muted w-20 shrink-0">{label}</span>}
       {children}
     </div>
-  )
-}
-
-function PostCard() {
-  return (
-    <Card hover padding={false} className="overflow-hidden">
-      <img
-        src="https://picsum.photos/seed/react19/800/450"
-        alt="Post cover"
-        className="w-full h-44 object-cover"
-      />
-      <div className="p-5 space-y-3">
-        <div className="flex items-center gap-2">
-          <Badge>Technology</Badge>
-        </div>
-        <h2 className="text-lg font-semibold text-ink leading-snug">
-          Building with React 19: What Actually Changed
-        </h2>
-        <p className="text-sm text-muted leading-relaxed line-clamp-2">
-          React 19 is a meaningful release. Here is what matters in practice
-          and what you can keep ignoring.
-        </p>
-        <div className="flex items-center justify-between pt-1">
-          <div className="flex items-center gap-2">
-            <Avatar
-              src="https://api.dicebear.com/9.x/initials/svg?seed=Sarah+Chen&backgroundColor=0a0a0a&fontColor=ffffff"
-              name="Sarah Chen"
-              size="sm"
-            />
-            <span className="text-xs text-muted">Sarah Chen</span>
-          </div>
-          <div className="flex items-center gap-3 text-xs text-muted">
-            <span className="flex items-center gap-1"><Clock size={12} /> 5 min</span>
-            <Button variant="ghost" size="sm" className="p-1">
-              <BookmarkPlus size={14} />
-            </Button>
-          </div>
-        </div>
-      </div>
-    </Card>
   )
 }

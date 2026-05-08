@@ -17,7 +17,7 @@ This project runs across five milestones. Each milestone is a branch. Each branc
 | Tool | Purpose |
 |------|---------|
 | React 19 | UI library |
-| Vite 6 | Dev server and build tool |
+| Vite 8 | Dev server and build tool |
 | Tailwind CSS 4 | Styling via utility classes |
 | React Router 7 (library mode) | Client-side routing |
 | Redux Toolkit 2 + react-redux | Global state management |
@@ -230,6 +230,10 @@ Wire up full client-side navigation. Every public page is reachable by URL. All 
 ```
 
 ### Page requirements
+
+### Post card reference
+
+See [`post-card-reference.png`](./post-card-reference.png) in this folder for the expected design of the post card. Build it yourself using the `Card`, `Badge`, `Avatar`, and `Button` primitives — the implementation is entirely your decision.
 
 **`/` — Home**
 - Required sections: site hero (text only, no background images), a grid of the 6 most recent published posts
