@@ -9,15 +9,13 @@
 
 import { BookmarkPlus, Search, ArrowRight } from 'lucide-react'
 import { Avatar, Badge, Button, Card, Input, Textarea } from './components/ui'
+import Navbar from './components/ui/Navbar'
 
 export default function App() {
   return (
     <div className="min-h-screen bg-subtle">
 
-      <header className="bg-paper border-b border-edge px-8 py-4 flex items-center justify-between sticky top-0">
-        <span className="text-base font-bold tracking-tight">Blogify</span>
-        <span className="text-sm text-muted">Design System — Milestone 1 reference</span>
-      </header>
+    <Navbar/>
 
       <main className="max-w-3xl mx-auto px-8 py-12 space-y-16">
 
