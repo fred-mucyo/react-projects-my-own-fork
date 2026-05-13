@@ -1,4 +1,4 @@
-export function Input({ label, id, error, className = '', ...props }) {
+export function Input({ label, id, error, className = "", ...props }) {
   return (
     <div className="flex flex-col gap-1.5">
       {label && (
@@ -14,12 +14,12 @@ export function Input({ label, id, error, className = '', ...props }) {
           placeholder:text-muted
           outline-none focus:border-ink
           transition-colors
-          ${error ? 'border-red-500' : ''}
+          ${error ? "border-red-500" : ""}
           ${className}
         `}
         {...props}
       />
       {error && <p className="text-xs text-red-500">{error}</p>}
     </div>
-  )
+  );
 }
