@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, Outlet} from "react-router-dom";
-
+import { Link,Outlet} from "react-router-dom";
+import Home from "./Home";
 
 
 export default function Posts(){
@@ -14,8 +14,8 @@ export default function Posts(){
 <button>Culture</button>
 <button>Career</button>
 </div>
-
-    <Outlet/>
+<Home/>
+     <Outlet/> 
     
     </>
     )
