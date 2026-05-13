@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import { Link, useLoaderData,useSearchParams } from "react-router-dom";
 import { getPosts,getCategories,getUsers} from "../Fetch/getData";
 import { BookmarkIcon } from "lucide-react";
 
@@ -19,6 +19,11 @@ export async function loader(){
 
     export default function Home(){
     const {posts,users,categories} = useLoaderData()
+
+const [searchParams,setSearchParams] = useSearchParams()
+const categoryFilter = searchParams.get("category")
+
+const displayedPosts = categoryFilter ? posts.filter(post => post.categoryId === categoryFilter) : posts
    
 
 
@@ -26,10 +31,12 @@ export async function loader(){
     
 
     <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 ">
+
+
     
   
     {
-posts.map(post => {
+displayedPosts.map(post => {
     const author = users.find(user => user.id === post.authorId)
     const avatar = users.find(user => user.id === post.authorId)
     const categoriesBadge = categories.find(category => category.id === post.categoryId)
