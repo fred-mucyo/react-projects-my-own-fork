@@ -6,16 +6,19 @@ export default function Navbar() {
     <>
       <header className="bg-paper border-b border-edge px-8 py-4 flex items-center justify-between sticky top-0">
         <span className="text-base font-bold tracking-tight">Blogify</span>
+
+        <div className="flex justify-end">
         <span className="text-sm text-muted"> Posts </span>
         <span className="text-sm text-muted"> Authors </span>
         <span className="text-sm text-muted">
-          {" "}
-          <SearchIcon />{" "}
+          
+          <SearchIcon />
         </span>
         <span className="text-sm text-muted">
-          {" "}
-          <BookmarkIcon />{" "}
-        </span>
+          
+          <BookmarkIcon />
+          </span>
+        </div>
       </header>
     </>
   );

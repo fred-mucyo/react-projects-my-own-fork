@@ -11,19 +11,23 @@ import LayoutPage from "./Pages/LayoutPage";
 import Authors from "./Pages/Authors";
 import PostDetail from "./Pages/PostDetail";
 import Posts from "./Pages/Posts";
+import PostLayout from "./Pages/PostLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<LayoutPage />}>
       <Route index path="/" element={<Home />} loader={HomeLoader} />
 
-      <Route path="posts" element={<Posts />} loader={HomeLoader}>
-        <Route path="/posts/:id" element={<PostDetail />} />
+      <Route element={<PostLayout/>}>
+
+      <Route path="posts" element={<Posts />} loader={HomeLoader}/>
+      <Route path="/posts/:slug" element={<PostDetail />} />
+
       </Route>
 
       <Route path="authors" element={<Authors />} />
 
-      <Route path="*" element={<h1>Not Found 😁😁</h1>} />
+      <Route path="*" element={<h1>Not Found 😓</h1>} />
     </Route>,
   ),
 );

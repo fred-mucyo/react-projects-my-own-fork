@@ -30,7 +30,7 @@ export default function Home() {
           );
 
           return (
-            <Link to={`/posts/${post.slug}`} key={post.id}>
+            <Link to="posts" key={post.id}>
               <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-200 ">
                 <div>
                   {
@@ -50,7 +50,7 @@ export default function Home() {
                     {<img src={avatar?.avatar} />}
                   </div>
                   <div>{author?.name}</div>
-                  <div className="ml-25">read time: {post.readTime}</div>
+                  <div className="ml-46">{post.readTime}</div>
                 </div>
               </div>
             </Link>
