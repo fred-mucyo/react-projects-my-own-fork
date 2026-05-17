@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import Home from "./Home";
 import { Button, Input } from "../components/ui";
-import { Link, useLoaderData, useSearchParams} from "react-router-dom";
-import { getPosts, getCategories, getUsers } from "../Fetch/getData";
-import { BookmarkIcon } from "lucide-react";
+import { Link, useLoaderData, useSearchParams } from "react-router-dom";
+import { getPosts, getCategories, getUsers} from "../Fetch/getData";
+import { BookmarkIcon, SearchIcon} from "lucide-react";
 
 export default function Posts() {
   const { posts, users, categories } = useLoaderData();
@@ -26,13 +26,13 @@ export default function Posts() {
     post.title.toLowerCase().includes(search.toLocaleLowerCase()),
   );
 
-//   const {slug} = useParams()
-//   console.log(slug)
-// // console.log(slug)
+  //   const {slug} = useParams()
+  //   console.log(slug)
+  // // console.log(slug)
   return (
     <div>
       <div className="flex justify-between p-9">
-        <Input onChange={handleChange} value={search} />
+        <Input onChange={handleChange} value={search} placeholder="Search.." />
 
         <Link to=".">
           <Button>All</Button>

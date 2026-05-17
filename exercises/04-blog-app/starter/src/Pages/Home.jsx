@@ -24,7 +24,7 @@ export default function Home() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 ">
         {posts.map((post) => {
           const author = users.find((user) => user.id === post.authorId);
-          const avatar = users.find((user) => user.id === post.authorId);
+          // const avatar = users.find((user) => user.id === post.authorId);
           const categoriesBadge = categories.find(
             (category) => category.id === post.categoryId,
           );
@@ -47,7 +47,7 @@ export default function Home() {
 
                 <div className="flex items-center gap-2">
                   <div className="w-5 ml-3.5 rounded-2xl overflow-hidden">
-                    {<img src={avatar?.avatar} />}
+                    {<img src={author?.avatar} />}
                   </div>
                   <div>{author?.name}</div>
                   <div className="ml-46">{post.readTime}</div>
