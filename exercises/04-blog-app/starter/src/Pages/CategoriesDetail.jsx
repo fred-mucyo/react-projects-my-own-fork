@@ -9,14 +9,14 @@ function CategoriesDetail() {
     const {id} = useParams()
     const {posts,categories,users} = useLoaderData()
     // console.log(id)
-
+const category = categories.find(cat => cat.id === id)
 
 
     const postToDetailToDisplay = posts.filter(post => post.categoryId === id)
     return (
 
         <div> 
-         
+          {category.name}
             {postToDetailToDisplay.map(post => {
                 const authorInfo = users.find(author => author.id === post.authorId)
                 const categoryBadge = categories.find(cat => cat.id === post.categoryId)
