@@ -21,7 +21,7 @@ const router = createBrowserRouter(
       <Route element={<PostLayout/>}>
 
       <Route path="posts" element={<Posts />} loader={HomeLoader}/>
-      <Route path="/posts/:slug" element={<PostDetail />} />
+      <Route path="/posts/:slug" element={<PostDetail/>} loader={HomeLoader}/>
 
       </Route>
 
