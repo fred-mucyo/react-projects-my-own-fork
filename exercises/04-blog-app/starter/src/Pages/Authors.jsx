@@ -1,8 +1,23 @@
 import React from 'react'
+import { useLoaderData } from 'react-router-dom'
+import { Avatar } from '../components/ui'
 
 function Authors() {
+     const {posts,categories,users} = useLoaderData()
     return (
-       <h1>This is the authors pages guysss..........</h1> 
+        <div>
+        {
+         users.map(user => (
+            <span key={user.id}>
+<Avatar src={user.avatar}/>
+<span>{user.name}</span>
+            </span>
+ 
+
+            ))
+        }
+        </div>
+        
     )
 }
 

@@ -28,7 +28,7 @@ const router = createBrowserRouter(
       <Route path="/author/:id" element={<AuthorDetails/>} loader={HomeLoader}/>
       </Route>
 
-      <Route path="authors" element={<Authors />} />
+      <Route path="authors" element={<Authors/>} loader={HomeLoader}/>
 
       <Route path="*" element={<h1>Not Found 😓</h1>} />
     </Route>,
