@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-export default function Authors() {
-  return (
-    <>
-      <h1>This is Authors page</h1>
-    </>
-  );
+function Authors() {
+    return (
+       <h1>This is the authors pages guysss..........</h1> 
+    )
 }
+
+export default Authors

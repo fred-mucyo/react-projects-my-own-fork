@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import Home from "./Home";
 import { Button, Input } from "../components/ui";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
-import { getPosts, getCategories, getUsers} from "../Fetch/getData";
-import { BookmarkIcon, SearchIcon} from "lucide-react";
+import { getPosts, getCategories, getUsers } from "../utility/getData";
+import { BookmarkIcon, SearchIcon } from "lucide-react";
 
 export default function Posts() {
   const { posts, users, categories } = useLoaderData();

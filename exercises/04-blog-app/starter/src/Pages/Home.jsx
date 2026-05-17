@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
-import { getPosts, getCategories, getUsers } from "../Fetch/getData";
+import { getPosts, getCategories, getUsers } from "../utility/getData";
 import { BookmarkIcon } from "lucide-react";
 import { Input } from "../components/ui";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, useLoaderData } from "react-router-dom";
+import { useParams, useLoaderData,Link} from "react-router-dom";
 // import { getPosts } from "../Fetch/getData";
 import { Avatar , Card , Badge} from "../components/ui";
 
@@ -24,9 +24,9 @@ export default function PostDetail() {
             <div>
               <img src={post.coverImage} alt={post.slug} />
             </div>
-            <Badge>{categoryBadge.name}</Badge>
+            <Link to={`/categories/${categoryBadge.id}`}><Badge>{categoryBadge.name}</Badge></Link>
             <div>{post.title}</div>
-            <div>{authorInfo.name}</div>
+            <Link to={`/author/${post.authorId}`}><div>{authorInfo.name}</div></Link>
             <Avatar src={authorInfo.avatar}></Avatar>
             <div>{authorInfo.bio}</div>
             <div>{authorInfo.email}</div>
