@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Home from "./Home";
-import { Button, Input , Card , Badge , Avatar } from "../components/ui";
+import { Button, Input, Card, Badge, Avatar } from "../components/ui";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import { getPosts, getCategories, getUsers } from "../utility/getData";
 import { BookmarkIcon, SearchIcon } from "lucide-react";
@@ -26,40 +26,44 @@ export default function Posts() {
     post.title.toLowerCase().includes(search.toLocaleLowerCase()),
   );
 
-
   return (
-    <div>
-      <div className="flex justify-between p-9">
-        <Input onChange={handleChange} value={search} placeholder="Search.." />
+    <div className="min-h-screen bg-stone-50">
+      <div className="flex flex-wrap justify-between gap-3 p-6 md:p-9">
+        <Input
+          onChange={handleChange}
+          value={search}
+          placeholder="Search.."
+          className="border border-2 w-full md:w-72 "
+        />
 
         <Link to=".">
-          <Button>All</Button>
+          <Button className="cursor-pointer hover:bg-orange-500 hover:text-white transition-colors">All</Button>
         </Link>
 
         <Link to="?category=1">
-          <Button>Technology</Button>
+          <Button className="cursor-pointer hover:bg-orange-500 hover:text-white transition-colors">Technology</Button>
         </Link>
 
         <Link to="?category=2">
-          <Button>Design</Button>
+          <Button className="cursor-pointer hover:bg-orange-500 hover:text-white transition-colors">Design</Button>
         </Link>
 
         <Link to="?category=3">
-          <Button>Career</Button>
+          <Button className="cursor-pointer hover:bg-orange-500 hover:text-white transition-colors">Career</Button>
         </Link>
 
         <Link to="?category=4">
-          <Button>Science</Button>
+          <Button className="cursor-pointer hover:bg-orange-500 hover:text-white transition-colors">Science</Button>
         </Link>
 
         <Link to="?category=5">
-          <Button>Culture</Button>
+          <Button className="cursor-pointer hover:bg-orange-500 hover:text-white transition-colors">Culture</Button>
         </Link>
       </div>
 
       {toBeDisplayed.length > 0 ? (
-        <div className="bg-stone-50 min-h-screen px-6 py-10 md:px-12 lg:px-20">
-          <Card className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+        <div className="px-6 py-10 md:px-12 lg:px-20">
+          <Card className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3 bg-transparent shadow-none border-none">
             {toBeDisplayed.map((post) => {
               const author = users.find((user) => user.id === post.authorId);
 
@@ -71,27 +75,35 @@ export default function Posts() {
 
               return (
                 <Link to={`/posts/${post.slug}`} key={post.id}>
-                  <div className="bg-white overflow-hidden shadow-sm border border-stone-200">
+                  <div className="overflow-hidden rounded-xl border border-stone-200 bg-white shadow-sm transition hover:shadow-md">
                     <div>
                       <img
                         src={post.coverImage}
                         alt={post.title}
-                        className="w-100"
+                        className="h-56 w-full object-cover"
                       />
                     </div>
 
-                    <Badge>{categoriesBadge?.name}</Badge>
+                    <div className="p-4 space-y-4">
+                      <Badge>{categoriesBadge?.name}</Badge>
 
-                    <div className="font-sans pr-2 pl-2">{post.title}</div>
+                      <div className="font-sans text-lg font-semibold text-stone-800">
+                        {post.title}
+                      </div>
 
-                    <div className="flex items-center gap-2">
-                      {/* <div className="w-5 ml-3.5 rounded-2xl overflow-hidden"> */}
-                        <Avatar src={avatar?.avatar} />
-                      {/* </div> */}
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <Avatar src={avatar?.avatar} />
 
-                      <div className="font-medium ">{author?.name}</div>
+                          <div className="font-medium text-sm">
+                            {author?.name}
+                          </div>
+                        </div>
 
-                      <div className="ml-46">{post.readTime}</div>
+                        <div className="text-sm text-stone-500">
+                          {post.readTime}
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </Link>
@@ -100,9 +112,11 @@ export default function Posts() {
           </Card>
         </div>
       ) : (
-        <span className="inline-flex items-center gap-2 ml-150 font-medium mt-40">
-          Not found 😓
-        </span>
+        <div className="flex items-center justify-center py-40">
+          <span className="inline-flex items-center gap-2 font-medium text-lg">
+            Not found 😓
+          </span>
+        </div>
       )}
     </div>
   );
