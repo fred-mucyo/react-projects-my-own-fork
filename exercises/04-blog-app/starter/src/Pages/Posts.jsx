@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Home from "./Home";
-import { Button, Input } from "../components/ui";
+import { Button, Input , Card , Badge , Avatar } from "../components/ui";
 import { Link, useLoaderData, useSearchParams } from "react-router-dom";
 import { getPosts, getCategories, getUsers } from "../utility/getData";
 import { BookmarkIcon, SearchIcon } from "lucide-react";
@@ -26,9 +26,7 @@ export default function Posts() {
     post.title.toLowerCase().includes(search.toLocaleLowerCase()),
   );
 
-  //   const {slug} = useParams()
-  //   console.log(slug)
-  // // console.log(slug)
+
   return (
     <div>
       <div className="flex justify-between p-9">
@@ -61,7 +59,7 @@ export default function Posts() {
 
       {toBeDisplayed.length > 0 ? (
         <div className="bg-stone-50 min-h-screen px-6 py-10 md:px-12 lg:px-20">
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
+          <Card className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
             {toBeDisplayed.map((post) => {
               const author = users.find((user) => user.id === post.authorId);
 
@@ -73,7 +71,7 @@ export default function Posts() {
 
               return (
                 <Link to={`/posts/${post.slug}`} key={post.id}>
-                  <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-stone-200">
+                  <div className="bg-white overflow-hidden shadow-sm border border-stone-200">
                     <div>
                       <img
                         src={post.coverImage}
@@ -82,16 +80,16 @@ export default function Posts() {
                       />
                     </div>
 
-                    <div>{categoriesBadge?.name}</div>
+                    <Badge>{categoriesBadge?.name}</Badge>
 
-                    <div>{post.title}</div>
+                    <div className="font-sans pr-2 pl-2">{post.title}</div>
 
                     <div className="flex items-center gap-2">
-                      <div className="w-5 ml-3.5 rounded-2xl overflow-hidden">
-                        <img src={avatar?.avatar} />
-                      </div>
+                      {/* <div className="w-5 ml-3.5 rounded-2xl overflow-hidden"> */}
+                        <Avatar src={avatar?.avatar} />
+                      {/* </div> */}
 
-                      <div>{author?.name}</div>
+                      <div className="font-medium ">{author?.name}</div>
 
                       <div className="ml-46">{post.readTime}</div>
                     </div>
@@ -99,7 +97,7 @@ export default function Posts() {
                 </Link>
               );
             })}
-          </div>
+          </Card>
         </div>
       ) : (
         <span className="inline-flex items-center gap-2 ml-150 font-medium mt-40">
